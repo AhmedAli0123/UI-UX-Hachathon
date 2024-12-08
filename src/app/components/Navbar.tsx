@@ -19,7 +19,7 @@ export default function Navbar() {
     } else if (item === "Home") {
       router.push("/"); // Navigate to Home
     } else if (item === "Blog") {
-      router.push("../blog"); // Navigate to Blog (example)
+      router.push("../blogdetail"); // Navigate to Blog (example)
     } else if (item === "About") {
       router.push("../about"); // Navigate to About (example)
     } else if (item === "Shop") {
