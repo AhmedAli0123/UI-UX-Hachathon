@@ -1,5 +1,7 @@
 import React from "react";
 
+import Image from "next/image";
+
 const chefs = [
   { name: "Tahmina Rumi", role: "Chef", image: "/chef1.png" },
   { name: "Jorina Begum", role: "Chef", image: "/chef2.png" },
@@ -48,9 +50,11 @@ const ChefGrid = () => {
           >
             {/* Chef Image */}
             <div className="flex-1">
-              <img
+              <Image
                 src={chef.image}
                 alt={chef.name}
+                width={400}
+                height={400}
                 className="w-full h-full object-cover rounded-t-lg"
               />
             </div>

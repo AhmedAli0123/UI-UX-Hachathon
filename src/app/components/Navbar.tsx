@@ -24,6 +24,10 @@ export default function Navbar() {
       router.push("../about"); // Navigate to About (example)
     } else if (item === "Shop") {
       router.push("../shoplist"); // Navigate to About (example)
+    }else if (item === "Page") {
+      router.push("../faq"); // Navigate to About (example)
+    }else if (item === "Contact") {
+      router.push("../chef"); // Navigate to About (example)
     }
     // Add other navigation logic as needed
   };

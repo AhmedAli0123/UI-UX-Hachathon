@@ -1,7 +1,8 @@
-// pages/shop.js
+
 
 "use client";
 import React from "react";
+import Image from "next/image";
 
 const Shop = () => {
   return (
@@ -37,12 +38,12 @@ const Shop = () => {
       {/* Products Section */}
       <section className="products-section">
         <div className="product-card">
-          <img src="/images/salad.jpg" alt="Salad" />
+          <Image src="/images/salad.jpg" alt="Salad" width={200} height={200}/>
           <h3>Salad</h3>
           <p>$12</p>
         </div>
         <div className="product-card">
-          <img src="/images/burger.jpg" alt="Burger" />
+          <Image src="/images/burger.jpg" alt="Burger" width={200} height={200}/>
           <h3>Burger</h3>
           <p>$15</p>
         </div>
