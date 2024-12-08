@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import blog1 from "../assets/blog1.png";
 import calender from "../assets/Calendar.png";
-import Admin from "../assets/admin.png";
+import Admin from "../assets/Admin.png";
 
 import blog2 from "../assets/blog2.png";
 import blog3 from "../assets/blog3.png";
