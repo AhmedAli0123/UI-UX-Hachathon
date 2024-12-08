@@ -2,203 +2,224 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import footer1 from "../assets/footer1.png";
+import footer2 from "../assets/footer2.png";
+import footer3 from "../assets/footer3.png";
 
-// Add specific icons to the library
-library.add(faFacebookF);
-library.add(faTwitter);
-library.add(faInstagram);
-library.add(faLinkedin);
 
-import QrCode from "../assets/Qr Code.png";
-import google from "../assets/GooglePlay.png";
-import apple from "../assets/download-appstore.png";
+
+import { PiClockClockwiseBold } from "react-icons/pi";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaPinterest } from "react-icons/fa";
+
+
+
 
 const Footer = () => {
   return (
-    <footer className="bg-black  mt-[100px] md:mt-10 mx-auto">
-      <div className="mx-auto w-full max-w-screen-xl">
-        <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-5 md:mx-24">
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Exlucsive
-            </h2>
-            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-              <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Subscribe
-                </Link>
-              </li>
-              <li className="mb-4">
-                <p className="hover:underline">Get 10% off your first order</p>
-              </li>
+    <footer className="bg-white dark:bg-black">
 
-              <li className="relative">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-[180px] h-[48px] bg-black text-gray-700 pl-4 pr-10 rounded border-2 border-white"
-                />
-                <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-5 h-5 text-gray-700"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
+<div className="flex flex-col md:flex-row justify-between items-center bg-black px-[35px] md:px-[135px] py-[50px]">
+  <div className="text-white md:w-[50%] w-[100%]">
+    <h2 className="text-[20px] md:text-[32px] font-semibold">
+      <span className="text-[#FF9F0D]">St</span>ill Need Our Support
+    </h2>
+    <p className="text-[10px] md:text-[16px] font-normal mt-[17px]">
+      Don&#39;t wait make a smart & logical quote here. Its pretty easy.
+    </p>
+  </div>
+
+  <div className="flex flex-col md:flex-row md:mt-0 mt-[20px] w-full md:w-auto">
+    <input
+      type="text"
+      placeholder="Enter Your Email"
+      className="bg-[#FF9F0D] text-white py-[5px] px-[10px] md:py-[10px] md:px-[20px] mr-2 mb-2 md:mb-0 border border-white"
+    />
+    <button className="text-[#FF9F0D] bg-white py-[5px] md:py-[10px] px-[10px] md:px-[20px]">
+      Subscribe Now
+    </button>
+  </div>
+</div>
+
+
+          <hr className="my-4 border-[#FF9F0D] mx-[135px]" />
+
+      <div className="mx-auto w-full max-w-screen-xl ">
+        <div className="grid grid-cols-2  md:gap-[50px] px-0 md:px-[135px] py-6 lg:py-8 md:grid-cols-4">
+          <div>
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+              About Us
+            </h2>
+            <ul className="text-gray-500  font-medium">
+              <li className="mb-4">
+                <p className="text-[#FFFFFF] text-[16px] font-normal hover:underline">
+                  orporate clients and leisure travelers has been relying on
+                  Groundlink for dependab safe, and professional chauffeured car
+                  service in major cities across World.
+                </p>
+              </li>
+              <li className="flex gap-[16.5px]">
+                <div className="bg-[#FF9F0D] flex justify-center items-center w-[72px] h-[72px]">
+                  <PiClockClockwiseBold className="text-white text-[40px]" />
+                </div>
+
+                <div className="ml-1">
+                  <h2 className="text-[16px] text-[#FFFFFF] font-normal">
+                    Opening Houres
+                  </h2>
+                  <h3 className="text-[10px] font-normal text-[#FFFFFF]">
+                    Mon - Sat(8.00 - 6.00)
+                  </h3>
+                  <h3 className="text-[10px] font-normal text-[#FFFFFF]">
+                    Sunday - Closed
+                  </h3>
                 </div>
               </li>
             </ul>
           </div>
-
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Support
-            </h2>
-            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-              <li className="mb-4">
-                <p className="hover:underline">
-                  111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
-                </p>
-              </li>
-              <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  exclusive@gmail.com
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  +88015-88888-9999
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Account
+          <div className="">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            Useful Links
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  My Account
+                  About
                 </a>
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Login / Register
+                  News
                 </a>
               </li>
               <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Cart
-                </Link>
+                <a href="#" className="hover:underline">
+                  Partner
+                </a>
               </li>
               <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Wishlist
-                </Link>
+                <a href="#" className="hover:underline">
+                  Team 
+                </a>
               </li>
+
               <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Shop
-                </Link>
-              </li>
+                <a href="#" className="hover:underline">
+                Menu
+                </a>
+              </li> 
+
+              <li className="mb-4">
+                <a href="#" className="hover:underline">
+                Contact
+                </a>
+              </li> 
             </ul>
           </div>
-
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Quick Link
+          <div className="mt-10 md:mt-0">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            Help?
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Terms Of Use
-                </Link>
-              </li>
-              <li className="mb-4">
-                <Link href="#" className="hover:underline">
+                <a href="#" className="hover:underline">
                   FAQ
-                </Link>
+                </a>
               </li>
               <li className="mb-4">
-                <Link href="#" className="hover:underline">
-                  Contact
-                </Link>
+                <a href="#" className="hover:underline">
+                Term & conditions
+                </a>
               </li>
+              <li className="mb-4">
+                <a href="#" className="hover:underline">
+                Reporting
+                </a>
+              </li>
+              <li className="mb-4">
+                <a href="#" className="hover:underline">
+                Documentation 
+                </a>
+              </li>
+
+              <li className="mb-4">
+                <a href="#" className="hover:underline">
+                Support Policy
+                </a>
+              </li> 
+
+              <li className="mb-4">
+                <a href="#" className="hover:underline">
+                Privacy
+                </a>
+              </li> 
             </ul>
           </div>
-
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-              Download App
+          <div className="mt-10 md:mt-0">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+              Recent Post
             </h2>
-            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-              <li className="mb-4">
-                <p className="text-xs font-semibold">
-                  Save $3 with App New User Only
-                </p>
-              </li>
-              <li className="mb-4 flex gap-[8px]">
-                <Image
-                  src={QrCode}
-                  alt="Qr Code"
-                  className="w-[60px] h-[60px] md:w-[80px] md:h-[80px]"
-                />
-                <div className="flex flex-col gap-[7px]">
-                  <Image
-                    src={google}
-                    alt="Download from Google"
-                    className="-[90px] h-[30pxw] md:w-[110] md:h-[40px] cursor-pointer"
-                  />
+            <ul className="text-gray-500 dark:text-gray-400 font-medium gap-[14px]">
+              <li className="flex gap-[16.5px]">
+                <Image src={footer1} alt="Fod" />
 
-                  <Image
-                    src={apple}
-                    alt="Download from Apple Store"
-                    className="-[90px] h-[30pxw] md:w-[110] md:h-[40px] cursor-pointer"
-                  />
+                <div className="ml-1">
+                  <h2 className="text-[12px] text-[#FFFFFF] font-normal">
+                    20 Feb 2022
+                  </h2>
+                  <h3 className="text-[14px] font-normal text-[#FFFFFF]">
+                    Keep Your Business
+                  </h3>
                 </div>
               </li>
 
-              <li className="flex gap-[24px]">
-                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="2x" />
+              <li className="flex gap-[16.5px] mt-[14px]">
+                <Image src={footer2} alt="Fod" />
 
-                <FontAwesomeIcon icon={["fab", "twitter"]} size="2x" />
-                <FontAwesomeIcon icon={["fab", "instagram"]} size="2x" />
-                <FontAwesomeIcon icon={["fab", "linkedin"]} size="2x" />
+                <div className="ml-1">
+                  <h2 className="text-[12px] text-[#FFFFFF] font-normal">
+                    20 Feb 2022
+                  </h2>
+                  <h3 className="text-[14px] font-normal text-[#FFFFFF]">
+                    Keep Your Business
+                  </h3>
+                </div>
+              </li>
+
+              <li className="flex gap-[16.5px] mt-[14px]">
+                <Image src={footer3} alt="Fod" />
+
+                <div className="ml-1">
+                  <h2 className="text-[12px] text-[#FFFFFF] font-normal">
+                    20 Feb 2022
+                  </h2>
+                  <h3 className="text-[14px] font-normal text-[#FFFFFF]">
+                    Keep Your Business
+                  </h3>
+                </div>
               </li>
             </ul>
           </div>
         </div>
-      </div>
+        
+        <div className="w-[100%] px-4 py-6 bg-gray-100 dark:bg-[#4F4F4F] md:flex md:items-center md:justify-between">
+          <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+            © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
+            Reserved.
+          </span>
 
-      <div className=" p-4">
-        <hr className="border-t-2 border-gray-700" />
-      </div>
-
-      <div className="text-gray-700 flex justify-center items- h-[40px] text-base font-normal">
-        &copy; Copyright Rimel 2022. All right reserved
+          <div className="flex justify-center gap-[14px]">
+            <div className="bg-white w-[36px] h-[34px] flex justify-center items-center rounded"><FaFacebookF /></div>
+            <div className="bg-white w-[36px] h-[34px] flex justify-center items-center rounded"><FaTwitter /></div>
+            <div className="bg-white w-[36px] h-[34px] flex justify-center items-center rounded"><FaInstagram /></div>
+            <div className="bg-white w-[36px] h-[34px] flex justify-center items-center rounded"><FaYoutube /></div>
+            <div className="bg-white w-[36px] h-[34px] flex justify-center items-center rounded"><FaPinterest /></div>
+          </div>
+         
+        </div>
       </div>
     </footer>
   );

@@ -1,129 +1,81 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter
+import { CiSearch } from "react-icons/ci";
+import { IoBagHandle } from "react-icons/io5";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 
-import Link from "next/link";
-import Image from "next/image";
-import favorite from "@/app/assets/favorite.png";
-import cardIcom from "@/app/assets/Cart1 with buy.png";
 
-import { useState } from "react";
 
 export default function Navbar() {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter(); // Initialize the router
+
+  const handleNavigation = (item:any) => {
+    setMenuOpen(false); // Close the menu
+    if (item === "Menu") {
+      router.push("../menu"); // Navigate to the Menu page
+    } else if (item === "Home") {
+      router.push("/"); // Navigate to Home
+    } else if (item === "Blog") {
+      router.push("../blog"); // Navigate to Blog (example)
+    } else if (item === "About") {
+      router.push("../about"); // Navigate to About (example)
+    } else if (item === "Shop") {
+      router.push("../shoplist"); // Navigate to About (example)
+    }
+    // Add other navigation logic as needed
+  };
 
   return (
-    <nav className="bg-white border-gray-200 text-black border-b ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-black text-white p-4 w-full overflow-hidden">
+      <section className="flex items-center justify-between px-4 md:px-[135px]">
         {/* Logo */}
-        <Link
-          href="#"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+        <div className="md:hidden block text-2xl font-bold">
+          <span className="text-orange-500">Food</span>tuck
+        </div>
+
+        {/* Hamburger Icon for Mobile */}
+        <div
+          className="text-orange-500 md:hidden cursor-pointer"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="self-center text-2xl font-bold whitespace-nowrap ">
-            Exclusive
-          </span>
-        </Link>
+          {menuOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
+        </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="flex md:order-2">
-          <button
-            type="button"
-            onClick={() => setIsNavbarOpen(!isNavbarOpen)}
-            aria-controls="navbar-search"
-            aria-expanded={isNavbarOpen}
-            className="md:hidden text-gray-500 dark:text-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 me-1"
-          >
-            <FontAwesomeIcon icon={faBars} className="w-5 h-5" />
-            <span className="sr-only">Search</span>
-          </button>
+        {/* Links */}
+        <ul
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent md:flex items-center space-y-4 md:space-y-0 md:space-x-6 text-sm transition-all duration-300 ${
+            menuOpen ? "block" : "hidden"
+          }`}
+        >
+          {["Home", "Menu", "Blog", "Pages", "About", "Shop", "Contact"].map((item) => (
+            <li
+              key={item}
+              className="hover:text-orange-500 cursor-pointer px-4 md:px-0"
+              onClick={() => handleNavigation(item)} // Handle navigation
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
 
-          {/* Search Bar (Desktop) */}
-          <div className="relative hidden md:block">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-              <span className="sr-only">Search icon</span>
-            </div>
+        {/* Search Box and Cart Icon */}
+        <div className="hidden md:flex items-center space-x-2">
+          <div className="relative">
             <input
               type="text"
-              id="search-navbar"
-              className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 w-[243px] "
-              placeholder="What are you looking for?"
+              placeholder="Search..."
+              className="bg-black border border-[#FF9F0D] rounded-full px-4 py-2 text-sm focus:outline-none focus:ring focus:ring-orange-500"
             />
+            <span className="absolute top-2.5 right-3">
+              <CiSearch />
+            </span>
           </div>
-          <Image
-            src={favorite}
-            alt="Favorite icon"
-            className="w-[20px] h-[18px] items-center mx-auto my-auto ml-[30px] cursor-pointer"
-          />
-          <Image
-            src={cardIcom}
-            alt="Favorite icon"
-            className="w-[32px] h-[32px] items-center mx-auto my-auto ml-[30px] cursor-pointer"
-          />
+          <IoBagHandle className="w-[24px] h-[24px] cursor-pointer" />
         </div>
-
-        {/* Navbar Links */}
-        <div
-          className={`items-center justify-between ${
-            isNavbarOpen ? "block" : "hidden"
-          } w-full md:flex md:w-auto md:order-1`}
-          id="navbar-search"
-        >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-black ">
-            <li>
-              <Link
-                href="#"
-                className="block py-2 px-3  hover:text-gray-500 rounded md:bg-transparent  md:p-0 "
-                aria-current="page"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="block py-2 px-3 hover:text-gray-500  rounded md:bg-transparent  md:p-0 "
-                aria-current="page"
-              >
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="block py-2 px-3  hover:text-gray-500 rounded md:bg-transparent  md:p-0 "
-                aria-current="page"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/../SignUp"
-                className="block py-2 px-3 rounded md:bg-transparent  md:p-0 hover:text-gray-500 "
-                aria-current="page"
-              >
-                Sign Up
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </section>
     </nav>
   );
 }
