@@ -1,14 +1,7 @@
 import Image from "next/image";
 import { IoPlayOutline } from "react-icons/io5";
 
-// import upper from "../aassets/about1.png";
-// import lemon from "../aassets/about2.png";
-// import yogurt from "../aassets/about3.png"
-// import pasta from ".../aassets/about4.png";
-// import third from ".../aassets/about5.png";
-// import student from "/Student.png";
-// import coffee from "/Coffee.png";
-// import person from "/Person.png";
+
 
 import upper from "../assets/about1.png";
 import lemon from "../assets/about2.png";

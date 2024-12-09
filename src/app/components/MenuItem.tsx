@@ -17,8 +17,8 @@ const MenuComponent = () => {
   return (
     <section className='bg-black px-8 sm:px-16 lg:px-[135px] text-white py-12'>
       <div className="container mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-2">Choose & Pick</h2>
-        <h1 className="text-3xl font-bold text-center mb-8">From Our Menu</h1>
+        <h2 className="text-2xl font-bold text-center mb-2 font-greatVibes text-[#FF9F0D]">Choose & Pick</h2>
+        <h1 className="text-3xl font-bold text-center mb-8"><span className='text-[#FF9F0D]'>Fr</span>om Our Menu</h1>
 
         <div className="flex justify-center mb-8">
           <ul className="flex flex-wrap justify-evenly space-x-2 sm:space-x-4">
