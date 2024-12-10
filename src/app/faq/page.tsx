@@ -1,79 +1,73 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Link from "next/link";
 
 const faqData = [
   {
     question: "How do we serve food?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     question: "How is our food quality?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     question: "How do we give home delivery?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     question: "How can we get in touch with you?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     question: "What will be delivered? And When?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
   {
     question: "Is this restaurant 24 hours open?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt.",
+    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   },
 ];
 
 const FAQPage: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <div className="min-h-screen bg-gray-100">
-      <section
-        className="bg-cover bg-center h-64 flex items-center justify-center"
+      {/* Hero Section */}
+      <header
+        className="h-64 bg-cover bg-center flex items-center justify-center text-white"
         style={{ backgroundImage: "url('/hero.png')" }}
       >
-        <div className="text-center text-white">
-          <h2 className="text-4xl font-bold">FAQ page</h2>
-          <p className="mt-[20px]">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold">FAQ Page</h1>
+          <p className="mt-2">
             <Link href="/" className="text-yellow-400">Home</Link> &gt; FAQ
           </p>
         </div>
-      </section>
+      </header>
 
+      {/* Main Content */}
       <main className="max-w-4xl mx-auto py-16 px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">Questions Looks Here</h2>
-        <p className="text-center text-gray-600 mb-12">
-          Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        <h2 className="text-3xl font-bold text-center mb-6">Questions & Answers</h2>
+        <p className="text-center text-gray-600 mb-8">
+          Lorem ipsum is simply dummy text of the printing and typesetting industry.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="space-y-4">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg transition-transform duration-200"
+              className="bg-white p-4 rounded-lg shadow cursor-pointer"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div
-                onClick={() => toggleFAQ(index)}
-                className="cursor-pointer flex justify-between items-center"
-              >
+              <div className="flex justify-between items-center">
                 <h3 className="text-lg font-medium">{faq.question}</h3>
-                <span className="text-2xl">
-                  {openIndex === index ? '-' : '+'}
-                </span>
+                <span className="text-xl">{openIndex === index ? "-" : "+"}</span>
               </div>
               {openIndex === index && (
-                <p className="text-sm text-gray-600 mt-4">{faq.answer}</p>
+                <p className="text-gray-600 mt-2">{faq.answer}</p>
               )}
             </div>
           ))}
@@ -83,4 +77,4 @@ const FAQPage: React.FC = () => {
   );
 };
 
-export default FAQPage;
+export default FAQPage;
