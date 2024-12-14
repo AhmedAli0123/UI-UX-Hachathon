@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation (Sheet) */}
-        <div className="lg:hidden flex justify-between">
+        <div className="md:hidden flex justify-between">
           <Sheet>
             <SheetTrigger>
               <HiMenuAlt3 className="text-orange-500 text-[34px] cursor-pointer" />
