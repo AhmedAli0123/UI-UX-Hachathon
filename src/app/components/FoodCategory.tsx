@@ -20,9 +20,9 @@ function FoodCategory() {
           <span className="text-[#FF9F0D]">Ch</span>oose Food Iteam
         </h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-[20px] mt-[50px]">
-          <Image src={food1} alt="" className="w-[200px] md:w-[305px] md:h-[280px]"/>
+        <div className="flex flex-col justify-center items-center   sm:grid sm:grid-cols-2 md:grid md:grid-cols-4 gap-[20px] mt-[50px]">
 
+          <Image src={food1} alt="" className="w-[200px] md:w-[305px] md:h-[280px]"/>
           <Image src={food2} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
           <Image src={food3} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
           <Image src={food4} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
