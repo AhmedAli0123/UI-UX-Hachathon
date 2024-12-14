@@ -159,8 +159,7 @@ return (
   
   
   <div className='min-h-screen'>
-      {/* navbar */}
-  
+      
 
     {/* Hero Section */}
     <div
@@ -180,7 +179,7 @@ return (
   </div>
 </div>
 
-  {/* navbar end */}
+ 
 
 
 

@@ -3,8 +3,8 @@ import cheakout from "../assets/checkout.png";
 
 export default function CheckoutPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid gap-8 lg:grid-cols-2">
+    <div className="container px-[70px]  md:px-[135px]  py-8">
+      <div className="grid gap-8 lg:grid-cols-2 ">
         {/* Left Column - Forms */}
         <div className="space-y-6">
           <div>

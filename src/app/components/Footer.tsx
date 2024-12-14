@@ -20,7 +20,7 @@ import { FaPinterest } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-black">
+    <footer className=" bg-black dark:bg-black px-5 md:px-0">
 
 <div className="flex flex-col md:flex-row justify-between items-center bg-black px-[35px] md:px-[135px] py-[50px]">
   <div className="text-white md:w-[50%] w-[100%]">
@@ -50,7 +50,7 @@ const Footer = () => {
       <div className="mx-auto w-full max-w-screen-xl ">
         <div className="grid grid-cols-2  md:gap-[50px] px-0 md:px-[135px] py-6 lg:py-8 md:grid-cols-4">
           <div>
-            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase text-white">
               About Us
             </h2>
             <ul className="text-gray-500  font-medium">
@@ -81,10 +81,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="">
-            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase text-white">
             Useful Links
             </h2>
-            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+            <ul className=" text-white font-medium">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
                   About
@@ -120,7 +120,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="mt-10 md:mt-0">
-            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase text-white">
             Help?
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -159,7 +159,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="mt-10 md:mt-0">
-            <h2 className="mb-6 text-[24px] font-semibold  uppercase dark:text-white">
+            <h2 className="mb-6 text-[24px] font-semibold  uppercase text-white">
               Recent Post
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium gap-[14px]">
@@ -205,9 +205,9 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="w-[100%] px-4 py-6 bg-gray-100 dark:bg-[#4F4F4F] md:flex md:items-center md:justify-between">
-          <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-            © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
+        <div className="w-[100%] px-4 py-6 bg-[#4F4F4F] dark:bg-[#4F4F4F] md:flex md:items-center md:justify-between">
+          <span className="text-sm 00 text-gray-300 sm:text-center">
+            © 2023 <a href="">Flowbite™</a>. All Rights
             Reserved.
           </span>
 

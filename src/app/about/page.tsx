@@ -1,46 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { IoPlayOutline } from "react-icons/io5";
 import { PiCoffeeBold, PiStudentDuotone } from "react-icons/pi";
 import { FaPerson } from "react-icons/fa6";
 
-import Testimonials from "../components/Testimonials"
 
-import upper from "../assets/about1.png";
 import lemon from "../assets/about2.png";
 import yogurt from "../assets/about3.png";
 import pasta from "../assets/about4.png";
 import third from "../assets/about5.png";
 import chooseus from "../assets/aboutus.png";
 
-import person from "../assets/Person (1).png";
+
 
 export default function About() {
   return (
     <div>
       {/* First Section: Image and Breadcrumb */}
-      <div className="relative font-[sans-serif] before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
-        <Image
-          src={upper}
-          alt="Banner Image"
-          className="absolute inset-0 w-full h-full object-cover"
-          layout="fill"
-        />
-        <div className="min-h-[350px] relative z-50 max-w-4xl mx-auto flex flex-col justify-center items-center text-center p-6">
-          <h2 className="text-white md:text-5xl text-3xl font-bold mb-8">
-            About Us
-          </h2>
-          <div className="flex items-center space-x-2 text-black">
-            <a href="/" className="text-white">
-              Home
-            </a>
-            <span className="text-white"> &gt; </span>
-            <a href="/about" className="text-orange-500">
-              About
-            </a>
-          </div>
+      <section
+        className="bg-cover bg-center h-64 flex items-center justify-center"
+        style={{ backgroundImage: "url('/hero.png')" }}
+      >
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-bold">About us</h2>
+          <p className="mt-[20px]">
+            <Link href="/" className="text-yellow-400">Home</Link> &gt; About
+          </p>
         </div>
-      </div>
+      </section>
 
       {/* Second Section: Content and Buttons */}
       <section className="text-black body-font bg-white px-3 md:px-[300px]">

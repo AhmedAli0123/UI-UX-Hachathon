@@ -1,57 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CiSearch } from "react-icons/ci";
 import { IoBagHandle } from "react-icons/io5";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+import Link from "next/link";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
   const navigationItems = [
     { name: "Home", path: "/" },
-    { name: "Menu", path: "../menu" },
-    { name: "Blog", path: "../blogdetail" },
-    { name: "FAQ ", path: "../faq" },
-    { name: "About", path: "../about" },
-    { name: "Chef", path: "../chef" },
-    { name: "Contact", path: "../SignUp" },
+    { name: "Menu", path: "/menu" },
+    { name: "Blog", path: "/blog" },
+    { name: "FAQ", path: "/faq" },
+    { name: "About", path: "/about" },
+    { name: "Shop", path: "/shoplist" },
+    { name: "Contact", path: "/SignUp" },
   ];
-
-  const handleNavigation = (path:string) => {
-    setMenuOpen(false);
-    router.push(path);
-  };
 
   return (
     <nav className="bg-black text-white p-4 w-full">
       <div className="flex items-center justify-between px-4 md:px-[135px]">
         {/* Logo */}
-        <div className="text-2xl font-bold md:hidden">
+        <div className="text-2xl font-bold">
           <span className="text-orange-500">Food</span>tuck
         </div>
 
-        {/* Hamburger Icon */}
-        <div
-          className="text-orange-500 md:hidden cursor-pointer"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
+        {/* Mobile Navigation (Sheet) */}
+        <div className="lg:hidden flex justify-between">
+          <Sheet>
+            <SheetTrigger>
+              <HiMenuAlt3 className="text-orange-500 text-[34px] cursor-pointer" />
+            </SheetTrigger>
+            <SheetContent>
+              <ul className="flex flex-col gap-[10px] font-medium text-[16px] text-black">
+                {navigationItems.map((item) => (
+                  <li key={item.name} className="hover:text-orange-500" onClick={() => router.push(item.path)}>
+                    {item.name}  
+                  </li>
+                ))}
+              </ul>
+            </SheetContent>
+          </Sheet>
         </div>
 
-        {/* Navigation Links */}
-        <ul
-          className={`gap-4 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent md:flex items-center transition-all duration-300 z-20 ${
-            menuOpen ? "block" : "hidden"
-          }`}
-        >
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex gap-[32px]">
           {navigationItems.map((item) => (
             <li
               key={item.name}
-              className="hover:text-orange-500 cursor-pointer px-4 md:px-0"
-              onClick={() => handleNavigation(item.path)}
+              className="hover:text-orange-500 cursor-pointer"
+              onClick={() => router.push(item.path)}
             >
               {item.name}
             </li>
