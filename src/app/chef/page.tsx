@@ -42,11 +42,9 @@ const ChefGrid = () => {
         {chefs.map((chef, index) => (
           <div
             key={index}
-            className={`relative overflow-hidden rounded-lg shadow-lg bg-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl ${
-              index === 6
-                ? "border-4 border-purple-600" // Complete purple border for the 7th box
-                : "border-4 border-transparent hover:border-purple-600" // Hover effect for other boxes
-            }`}
+            className="relative overflow-hidden rounded-lg shadow-lg bg-white flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl border-4 border-transparent hover:border-purple-600 cursor-pointer" 
+                // Hover effect for other boxes
+            
           >
             {/* Chef Image */}
             <div className="flex-1">

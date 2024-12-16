@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { AiOutlineLike } from "react-icons/ai";
 import { RiMessage2Line } from "react-icons/ri";
@@ -31,10 +32,10 @@ function Blog() {
         <section className="bg-black md:px-[135px]   py-[50px]">
         <div className="flex flex-col justify-center items-center">
       <h1 className="md:text-[32px] text-[24px] font-normal text-[#FF9F0D] font whitespace-nowrap font-greatVibes">
-      Food Category
+      Blog Post
         </h1>
         <h1 className="text-[20px] text-white md:text-[50px] font-bold whitespace-nowrap md:whitespace-normal">
-          <span className="text-[#FF9F0D]">Ch</span>oose Food Iteam
+          <span className="text-[#FF9F0D]">La</span>test News & Blog
         </h1>
         </div>
 
@@ -45,13 +46,13 @@ function Blog() {
                         <Image
                             src={post.imageSrc}
                             alt={post.title}
-                            width={300}
-                            height={300}
+                            width={423}
+                            height={349}
                         />
                         <h2 className="text-[#FF9F0D] text-[16px] font-normal mt-[30px] px-[43px]">{post.date}</h2>
                         <h2 className="text-white text-[24px] font-bold px-[43px] mt-[16px]">{post.title}</h2>
                         <div className="text-white flex justify-between px-[43px] my-[32px]">
-                            <h1>Learn More</h1>
+                            <Link href={"../shoplist"} className="hover:underline hover:text-[#FF9F0D]">Learn More</Link>
                             <div className="flex gap-[8px]">
                             <AiOutlineLike />
                             <RiMessage2Line />

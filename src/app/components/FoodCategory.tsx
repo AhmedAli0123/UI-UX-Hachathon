@@ -22,10 +22,10 @@ function FoodCategory() {
         </div>
         <div className="flex flex-col justify-center items-center   sm:grid sm:grid-cols-2 md:grid md:grid-cols-4 gap-[20px] mt-[50px]">
 
-          <Image src={food1} alt="" className="w-[200px] md:w-[305px] md:h-[280px]"/>
-          <Image src={food2} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
-          <Image src={food3} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
-          <Image src={food4} alt="" className="w-[200px] md:w-[280px] md:h-[280px] cursor-pointer" />
+          <Image src={food1} alt="" className="w-[200px] md:w-[305px] md:h-[280px] transition-transform transform hover:scale-105 hover:shadow-xl border  hover:border-white  cursor-pointer"/>
+          <Image src={food2} alt="" className="w-[200px] md:w-[280px] md:h-[280px] transition-transform transform hover:scale-105 hover:shadow-xl border  hover:border-white  cursor-pointer" />
+          <Image src={food3} alt="" className="w-[200px] md:w-[280px] md:h-[280px] transition-transform transform hover:scale-105 hover:shadow-xl border  hover:border-white  cursor-pointer" />
+          <Image src={food4} alt="" className="w-[200px] md:w-[280px] md:h-[280px] transition-transform transform hover:scale-105 hover:shadow-xl border  hover:border-white  cursor-pointer" />
         </div>
       </section>
     </>

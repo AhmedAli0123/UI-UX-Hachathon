@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import menu from "../assets/menu.png";
 
 const menuItems = [
@@ -14,6 +16,12 @@ const menuItems = [
 ];
 
 const MenuComponent = () => {
+
+  const route= useRouter()
+    function handleNavigate() {
+      route.push(("../shopdetail"))
+    }
+
   return (
     <section className='bg-black px-8 sm:px-16 lg:px-[135px] text-white py-12'>
       <div className="container mx-auto">
@@ -41,7 +49,9 @@ const MenuComponent = () => {
           {/* Right Section: Menu Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 flex-grow">
             {menuItems.map((item, index) => (
-              <div key={index} className="flex 00 rounded-lg overflow-hidden shadow-lg">
+              <div key={index} 
+              onClick={handleNavigate}
+              className="flex 00 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl   hover:border-white cursor-pointer">
                 <div className="w-1/3 ">
                   <Image src={item.image} alt={item.name} width={100} height={100} className="object-cover" />
                 </div>

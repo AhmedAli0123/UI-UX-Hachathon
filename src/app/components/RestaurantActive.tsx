@@ -1,8 +1,16 @@
 import React from "react";
 
 import { CiPlay1 } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 function RestaurantActive() {
+
+  const route= useRouter()
+  function handleNavigate() {
+    route.push(("../blog"))
+  }
+
+
   return (
     <section className="relative bg-black md:px-[135px] md:py-[120px] h-[80vh] ">
       <div
@@ -25,7 +33,11 @@ function RestaurantActive() {
             Urna, elit augue urna,
           </h3>
           <div className="flex md:flex-row flex-col justify-center items-center gap-[24px] mt-[33px]">
-            <button className="border border-[#FF9F0D] w-[100px] h-[30px] md:w-[190px] md:h-[60px] rounded-[30px]">Read More</button>
+            <button 
+            onClick={handleNavigate}
+            className="border border-[#FF9F0D] w-[100px] h-[30px] md:w-[190px] md:h-[60px] rounded-[30px] 
+                          transition-transform transform hover:scale-105 hover:shadow-xl  hover:border-white hover:bg-[#FF9F0D] cursor-pointer
+            ">Read More</button>
             <div className="w-[60px] h-[60px] rounded-full bg-[#FF9F0D] flex justify-center items-center">
               <CiPlay1 className="h-[24px] w-[24px]" />
             </div>

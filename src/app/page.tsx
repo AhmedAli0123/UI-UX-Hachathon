@@ -15,7 +15,7 @@ import RestaurantActive from './components/RestaurantActive'
 import Blog from './components/Blog'
 import Testimonials from './components/Testimonials';
 
-// import ExtraTaste from './components/ExtraTaste'
+import ExtraTaste from './components/ExtraTaste'
 
 
 
@@ -30,7 +30,7 @@ function page() {
     <Hero />
     <AbountUs />
     <FoodCategory />
-    {/* <ExtraTaste /> */}
+    <ExtraTaste />
     <Items />
 
     <MenuItem />
