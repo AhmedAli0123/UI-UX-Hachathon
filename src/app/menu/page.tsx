@@ -99,7 +99,7 @@ export default function Menu() {
       },
       {
         title: "Drinks",
-        image: "/drinks.png",
+        image: "/drink.png",
         items: [
           {
             name: "Caffé macchiato",

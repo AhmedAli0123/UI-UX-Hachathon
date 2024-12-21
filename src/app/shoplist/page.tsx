@@ -51,7 +51,7 @@ const menuItems = [
     id: 7,
     name: "Cheese Butter",
     price: 10.0,
-    image: "/shoplist9.png",
+    image: "/shoplist7.png",
     tags: ["default"],
   },
   {
@@ -65,53 +65,6 @@ const menuItems = [
     id: 9,
     name: "Chicken Chup",
     price: 12.0,
-    image: "/shoplist8.png",
-    tags: ["default"],
-  },
-  {
-    id: 10,
-    name: "Country Burger",
-    price: 45.0,
-
-    image: "/shoplist4.png",
-    tags: ["default"],
-  },
-  {
-    id: 11,
-    name: "Drink",
-    price: 23.0,
-
-    image: "/shoplist5.png",
-    tags: ["default"],
-  },
-  {
-    id: 12,
-    name: "Pizza",
-    price: 43.0,
-
-    image: "/shoplist6.png",
-    tags: ["default"],
-  },
-  {
-    id: 13,
-    name: "Cheese Butter",
-    price: 10.0,
-
-    image: "/shoplist7.png",
-    tags: ["default"],
-  },
-  {
-    id: 14,
-    name: "Sandwiches",
-    price: 25.0,
-    image: "/shoplist8.png",
-    tags: ["default"],
-  },
-  {
-    id: 15,
-    name: "Cheese Butter",
-    price: 10.0,
-
     image: "/shoplist9.png",
     tags: ["default"],
   },

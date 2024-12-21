@@ -3,6 +3,8 @@
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import {storeDetails}  from "@/Data/StoreData"
+
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
@@ -19,15 +21,27 @@ import {
 import { IoIosGitCompare } from "react-icons/io";
 
 import star from "../assets/Star.png";
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
-import img5 from "../assets/img5.png";
 
-function Product() {
+
+interface Params {
+  params: {
+    id: string;
+  };
+}
+
+function Product({params}:Params) {
+
+  const dataId =Number(params.id)
+
+  // For Product Details
+  const product = storeDetails.find((item) => item.id === dataId);
+
+
+  // For Use Add +1 Button
   const [count, setCount] = useState(1);
 
+
+  // For Notification Package Of React Toastify
   function handleNotification() {
     toast.success("Item was added in cart successfully!", {
       position: "top-center",
@@ -47,31 +61,12 @@ function Product() {
       <section className="px-[80px] md:px-[135px] flex flex-col md:flex-row gap-[55px]  my-[120px]">
         {/* Creating Images */}
         <div className="w-[100%] md:w-[50%] flex justify-between gap-[24px]">
-          <div className="flex flex-col gap-[24px]">
-            <Image
-              src={img1}
-              alt=""
-              className="hover:border-2 border-gray-700 transition-transform duration-200 ease-in transform hover:scale-105 cursor-pointer"
-            />
-            <Image
-              src={img2}
-              alt=""
-              className="hover:border-2 border-gray-700 transition-transform duration-200 ease-in transform hover:scale-105 cursor-pointer"
-            />
-            <Image
-              src={img3}
-              alt=""
-              className="hover:border-2 border-gray-700 transition-transform duration-200 ease-in transform hover:scale-105 cursor-pointer"
-            />
-            <Image
-              src={img4}
-              alt=""
-              className="hover:border-2 border-gray-700 transition-transform duration-200 ease-in transform hover:scale-105 cursor-pointer"
-            />
-          </div>
+          
           <div>
             <Image
-              src={img5}
+              src={product?.img || ""}
+              width={491}
+              height={550}
               alt=""
               className=" md:w-[400px] md:h-[550px] hover:border-2 border-gray-700 transition-transform duration-200 ease-in transform hover:scale-105 cursor-pointer"
             />
@@ -106,20 +101,16 @@ function Product() {
           {/* For Product Details */}
           <div>
             <h2 className="text-[24px] md:text-[48px] font-bold mt-[8px]">
-              Yummy Chicken Chup
+              {product?.title}
             </h2>
             <p className="text-[#4F4F4F] text-[14px]  md:text-[18px] mt-[24px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              diam pellentesque bibendum non dui volutpat fringilla bibendum.
-              Urna, urna, vitae feugiat pretium donec id elementum. Ultrices
-              mattis sed vitae mus risus. Lacus nisi, et ac dapibus sit eu velit
-              in consequat.
+              {product?.Description}
             </p>
 
             <hr className="border border-[#E0E0E0] my-[32px]" />
 
             <h3 className="md:text-[32px] text-[24px] font-bold mt-[64px] leading-[40px]">
-              54.00$
+              ${product?.price}
             </h3>
 
             <div className="flex gap-[14px] text-[#828282] text-[12px] md:text-[16px] font-normal mt-[18px]">

@@ -5,7 +5,13 @@ import SimilarProduct from "./components/SimilarProducts"
 import Description from './components/Description'
 import Product from './components/Product'
 
-function page() {
+interface Paramas {
+  params: {
+    id: string
+  }
+}
+
+function page({params}:Paramas) {
   return (
     <>
     
@@ -25,7 +31,7 @@ function page() {
         </div>
       </section>
     
-  <Product />
+      <Product params={params} />
     <Description />
       <SimilarProduct />
       </>

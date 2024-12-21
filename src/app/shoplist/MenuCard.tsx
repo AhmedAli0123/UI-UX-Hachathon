@@ -21,7 +21,7 @@ export default  function MenuCard({ id, name, price, image, tags }: Props) {
     const route= useRouter()
 
     function handleNavigate() {
-      route.push(("../shopdetail"))
+      route.push((`/shoplist/${id}`))
     }
 
     return (
