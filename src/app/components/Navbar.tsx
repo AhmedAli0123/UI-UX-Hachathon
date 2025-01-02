@@ -5,12 +5,14 @@ import { CiSearch } from "react-icons/ci";
 import { IoBagHandle } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
+import { useAppSelector } from "../store/hooks";
 import Link from "next/link";
 
 export default function Navbar() {
-  const router = useRouter();
+  const cart = useAppSelector((state) => state.cart);
 
+  // Router For Path
+  const router = useRouter();
   const navigationItems = [
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
@@ -30,28 +32,38 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation (Sheet) */}
-        <div className="md:hidden flex justify-between">
+        <div className="lg:hidden flex justify-between items-center gap-2">
           <Sheet>
             <SheetTrigger>
               <HiMenuAlt3 className="text-orange-500 text-[34px] cursor-pointer" />
             </SheetTrigger>
-            <SheetContent>
-              <ul className="flex flex-col gap-[10px] font-medium text-[16px] text-black">
+            <div className="relative">
+              <IoBagHandle className="w-6 h-6 cursor-pointer" />
+              <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {cart.length}
+              </div>
+            </div>
+            <ul className="flex flex-col gap-[10px] font-medium text-[16px] text-black">
+              <SheetContent>
                 {navigationItems.map((item) => (
-                  <li key={item.name} className="hover:text-orange-500" onClick={() => router.push(item.path)}>
-                    {item.name}  
+                  <li
+                    key={item.path}
+                    className="hover:text-orange-500"
+                    onClick={() => router.push(item.path)}
+                  >
+                    {item.name}
                   </li>
                 ))}
-              </ul>
-            </SheetContent>
+              </SheetContent>
+            </ul>
           </Sheet>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex gap-[32px]">
+        <ul className="hidden lg:flex gap-[32px]">
           {navigationItems.map((item) => (
             <li
-              key={item.name}
+              key={item.path}
               className="hover:text-orange-500 cursor-pointer"
               onClick={() => router.push(item.path)}
             >
@@ -61,7 +73,7 @@ export default function Navbar() {
         </ul>
 
         {/* Search and Cart */}
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden lg:flex items-center space-x-2">
           <div className="relative">
             <input
               type="text"
@@ -70,7 +82,15 @@ export default function Navbar() {
             />
             <CiSearch className="absolute top-2.5 right-3" />
           </div>
-          <IoBagHandle className="w-6 h-6 cursor-pointer" />
+
+          <div className="relative">
+          <Link href="/cart">
+            <IoBagHandle className="w-6 h-6 cursor-pointer" />
+            </Link>
+            <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              {cart.length}
+            </div>
+          </div>
         </div>
       </div>
     </nav>

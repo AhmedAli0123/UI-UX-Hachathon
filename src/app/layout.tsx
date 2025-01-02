@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Great_Vibes } from '@next/font/google';
+import { Great_Vibes } from "@next/font/google";
+import Providers from "./providers";
 
 import "./globals.css";
 
@@ -9,7 +10,11 @@ import Header from "./components/Header";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-const greatVibes = Great_Vibes({ subsets: ['latin'], weight: '400', variable: '--font-great-vibes' });
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-great-vibes",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,14 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={greatVibes.variable}>
-       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
-        <Header />
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

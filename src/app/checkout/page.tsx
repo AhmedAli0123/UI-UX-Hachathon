@@ -1,7 +1,32 @@
+"use client"
+
 import Image from "next/image";
 import cheakout from "../assets/checkout.png";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useAppSelector } from "../store/hooks";
+import {Cart} from "../utilits/type";
+
 
 export default function CheckoutPage() {
+  // Navigation
+    const router = useRouter()
+    function handleNavigation(){
+      router.push('/cart')
+    }
+    function handleOrderComplete(){
+      router.push('/ordercomplete')
+    }
+
+    // Get Total Amount
+    const cart: Cart[]  | any= useAppSelector((state) => state.cart);
+  const totalAmount = cart.reduce(
+    (acc: number, product:Cart) => acc + product.price * product.quantity,
+    0
+  );
+  // Tax 
+  let tax:string="20"
+
   return (
     <div className="container px-[70px]  md:px-[135px]  py-8">
       <div className="grid gap-8 lg:grid-cols-2 ">
@@ -176,7 +201,9 @@ export default function CheckoutPage() {
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-between gap-4 pt-4">
-            <button className="py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 w-full md:w-72 h-12 px-3">
+            <button 
+            onClick={handleNavigation}
+            className="py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 w-full md:w-72 h-12 px-3">
               Back to cart
             </button>
             <button className="px-6 py-2 bg-orange-500 text-white rounded-md shadow-sm text-sm font-medium hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 w-full md:w-72 h-12">
@@ -187,52 +214,66 @@ export default function CheckoutPage() {
 
         {/* Right Column - Order Summary */}
         <div className="p-6 rounded-lg border-2 border-gray-300">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-          <div className="space-y-4">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="flex items-center space-x-4">
-                <div className="relative h-16 w-16">
-                  <Image
-                    src={cheakout}
-                    alt="Chicken Tikka Kebab"
-                    fill
-                    className="rounded-md object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-medium">Chicken Tikka Kebab</h3>
-                  <p className="text-sm text-gray-500">150 gm net</p>
-                  <p className="text-sm text-gray-500">50$</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 space-y-2 border-t pt-4">
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Subtotal</span>
-              <span className="font-medium">130$</span>
+      {/* Order Summary Heading */}
+      <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+
+      {/* Order Items */}
+      <div className="space-y-4">
+        {cart.map((product: Cart[] | any ) => (
+          <div key={product.id} className="flex items-center space-x-4">
+            {/* Product Image */}
+            <div className="relative h-16 w-16">
+              <Image
+                src={product.img}
+                alt={product.title}
+                fill
+                className="rounded-md object-cover"
+              />
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Shipping</span>
-              <span className="font-medium">Free</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Discount</span>
-              <span className="font-medium">25%</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Tax</span>
-              <span className="font-medium">54.76$</span>
-            </div>
-            <div className="flex justify-between border-t pt-2">
-              <span className="font-semibold">Total</span>
-              <span className="font-semibold">432.65$</span>
+
+            {/* Product Details */}
+            <div className="flex-1">
+              <h3 className="font-medium">{product.title}</h3>
+              <p className="text-sm text-gray-500">{product.quantity} x ${product.price.toFixed(2)}</p>
+              <p className="text-sm text-gray-500">
+                Total: ${(product.quantity * product.price).toFixed(2)}
+              </p>
             </div>
           </div>
-          <button className="w-full mt-6 px-6 py-3 bg-orange-500 text-white rounded-md shadow-sm text-sm font-medium hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
-            Place an order
-          </button>
+        ))}
+      </div>
+
+      {/* Order Summary Details */}
+      <div className="mt-6 space-y-2 border-t pt-4">
+        <div className="flex justify-between text-sm">
+          <span className="text-gray-600">Subtotal</span>
+          <span className="font-medium">${totalAmount.toFixed(2)}</span>
         </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-gray-600">Shipping</span>
+          <span className="font-medium">Free</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-gray-600">Discount</span>
+          <span className="font-medium">0</span>
+        </div>
+        <div className="flex justify-between text-sm">
+          <span className="text-gray-600">Tax</span>
+          <span className="font-medium">${tax}</span>
+        </div>
+        <div className="flex justify-between border-t pt-2">
+          <span className="font-semibold">Total</span>
+          <span className="font-semibold">${(totalAmount + parseFloat(tax)).toFixed(2)}</span>
+        </div>
+      </div>
+
+      {/* Place Order Button */}
+      <button
+      onClick={handleOrderComplete}
+      className="w-full mt-10 px-6 py-2 bg-orange-500 text-white rounded-md shadow-sm text-sm font-medium hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500   h-12">
+      Place an order
+            </button> 
+    </div>
       </div>
           
     </div>
