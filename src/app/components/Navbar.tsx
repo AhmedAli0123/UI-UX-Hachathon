@@ -38,7 +38,9 @@ export default function Navbar() {
               <HiMenuAlt3 className="text-orange-500 text-[34px] cursor-pointer" />
             </SheetTrigger>
             <div className="relative">
-              <IoBagHandle className="w-6 h-6 cursor-pointer" />
+            <Link href="/cart">
+            <IoBagHandle className="w-6 h-6 cursor-pointer" />
+            </Link>
               <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                 {cart.length}
               </div>

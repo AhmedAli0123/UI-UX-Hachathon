@@ -117,7 +117,7 @@ function Product({ params }: Params) {
               ${cartItem.price * cartItem.quantity}
             </h3>
 
-            <div className="flex gap-[14px] text-[#828282] text-[12px] md:text-[16px] font-normal mt-[18px]">
+            <div className="flex flex-col md:flex-row gap-[14px] text-[#828282] text-[12px] md:text-[16px] font-normal mt-[18px]">
               <Image src={star} alt="rating" />|<h2 className="">5.0 Rating</h2>
               |<h2>22 Review</h2>
             </div>
@@ -171,17 +171,17 @@ function Product({ params }: Params) {
               </button>
             </div>
 
-            <h2 className="text-[#4F4F4F] text-[18px] font-normal flex cursor-pointer">
-              {" "}
-              <span className="flex items-center"> 
-              <FaRegHeart className="hover:text-red-600 cursor-pointer " /> Add
-              to Wishlist{" "}
-              </span>
-              <span className="flex items-center ml-[16px]">
-                <IoIosGitCompare />
-                Compare
-              </span>
-            </h2>
+            <h2 className="text-[#4F4F4F] text-[18px] font-normal flex flex-wrap items-center gap-4 cursor-pointer sm:text-[16px] md:text-[18px]">
+  <span className="flex items-center">
+    <FaRegHeart className="hover:text-red-600 cursor-pointer" />
+    <span className="ml-1">Add to Wishlist</span>
+  </span>
+  <span className="flex items-center">
+    <IoIosGitCompare />
+    <span className="ml-1">Compare</span>
+  </span>
+</h2>
+
 
             <h2 className="text-[#4F4F4F] text-[18px] font-normal mt-[8px]">
               <span className="text-[#333333]">Category:</span> Pizza

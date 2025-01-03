@@ -91,10 +91,10 @@ function page() {
 
       {/* For Main Page */}
 
-      <section className=" px-[70px] md:px-[135px] flex flex-col md:flex-row my-[40px]">
+      <section className="px-2  md:px-[135px] flex flex-col md:flex-row my-[40px]">
         {/* For Menu Items   */}
         <div>
-          <div className="flex flex-col md:flex-row md:justify-start md:items-center mt-[120px] gap-[5px]">
+          <div className="hidden md:flex md:flex-row md:justify-start md:items-center mt-[120px] gap-[5px]">
             <h2>Sort By:</h2>
             <input
               type="dropDown"
@@ -109,7 +109,7 @@ function page() {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-[34px] sm:grid-cols-2 md:grid-cols-3 mt-[24px] ">
+          <div className="grid grid-cols-2 gap-[34px] md:grid-cols-2 lg:grid-cols-3 mt-[24px] ">
             {menuItems.map((item) => (
               <MenuCard
                 key={item.id} // <-- Add key here
