@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { useAppSelector } from "../store/hooks";
 import {Cart} from "../utilits/type";
+import Link from "next/link";
 
 
 export default function CheckoutPage() {
@@ -28,6 +29,22 @@ export default function CheckoutPage() {
   let tax:string="20"
 
   return (
+    <>
+     <section
+        className="bg-cover bg-center h-64 flex items-center justify-center"
+        style={{ backgroundImage: "url('/hero.png')" }}
+      >
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-bold">Checkout Page</h2>
+          <p className="mt-[20px]">
+            <Link href="/" className="text-yellow-400">
+              Home
+            </Link>{" "}
+            &gt;Checkout Page
+          </p>
+        </div>
+      </section>
+    
     <div className="container px-[70px]  md:px-[135px]  py-8">
       <div className="grid gap-8 lg:grid-cols-2 ">
         {/* Left Column - Forms */}
@@ -277,5 +294,6 @@ export default function CheckoutPage() {
       </div>
           
     </div>
+    </>
   );
 }

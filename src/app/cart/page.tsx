@@ -12,6 +12,7 @@ import {
 import { Cart } from "../utilits/type";
 import TotalAmount from "./TotalAmount";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function CartPage() {
   const cart: Cart[] | any = useAppSelector((state) => state.cart);
@@ -32,6 +33,20 @@ function CartPage() {
     
   return (
     <>
+     <section
+        className="bg-cover bg-center h-64 flex items-center justify-center"
+        style={{ backgroundImage: "url('/hero.png')" }}
+      >
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-bold">Shopping Cart</h2>
+          <p className="mt-[20px]">
+            <Link href="/" className="text-yellow-400">
+              Home
+            </Link>{" "}
+            &gt;Shopping Cart
+          </p>
+        </div>
+      </section>
     <div className="max-w-5xl mx-auto py-10 px-4">
   <h1 className="text-xl md:text-2xl font-bold mb-6 text-white">Your Cart</h1>
 

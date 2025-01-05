@@ -23,6 +23,9 @@ export default function MenuCard({ id, name, price, image, tags }: Props) {
   return (
     <div
       onClick={handleNavigate}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e)=>e.key === "Enter" && handleNavigate()}
       className="w-[150px]  md:w-[300px]  rounded  hover:border-2 border-[#FF9F0D] transition-transform duration-200 ease-in transform hover:scale-105"
     >
       <div className="w-[150px] h-[200px] md:w-[290px] md:h-[300px]">
@@ -31,6 +34,7 @@ export default function MenuCard({ id, name, price, image, tags }: Props) {
           alt={name}
           width={500}
           height={500}
+          unoptimized={true}
           className="rounded cursor-pointer"
         />
       </div>
